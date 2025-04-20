@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  form(action=item._id ? `/${item._id}/edit` : '/new', method="POST")
+    label(for="name") Name:
+    input(type="text", name="name", value=item.name || '', required)
+    label(for="feedback") Feedback:
+    input(type="text", name="feedback", value=item.feedback || '', required)
+    br
+    br
+    button(type="submit") Submit
+    
+  p 
+    a(href="/") Back to Home

@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the Homepage
+  p To sign the guest list and share some feedback, click 
+  a(href="/new") here
+  p and fill out the form!
+  p To test the API, click 
+  a(href="/test.html") here
+  
+  if items && items.length
+    h2 Visitors:
+    ul
+      each item in items
+        li 
+          | #{item.name} - #{item.feedback} 
+          form(action=`/${item._id}/delete`, method="POST", style="display:inline")
+            button(type="submit") Delete
+            a(href=`/${item._id}/edit`) Edit

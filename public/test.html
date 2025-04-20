@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>API Tester</title></head>
+<body>
+  <h1>Test API</h1>
+  <button onclick="fetchItems()">Get All Records</button>
+  <pre id="output"></pre>
+  <script>
+    async function fetchItems() {
+      const res = await fetch('/api/items');
+      const data = await res.json();
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+  <br>
+  <a href="../">Back to Home</a> 
+</body>
+</html>
